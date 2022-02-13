@@ -43,6 +43,7 @@ source_code = HtmlFile.read()
     # leafmap.cesium_to_streamlit(html, height=800)
     # m = geemap.Map(location=[33.81712, -118.34365], zoom_start=18)
 m = leafmap.Map(location=[33.81712, -118.34365], zoom_start=18)
+folium.Marker([33.81712, -118.34365], popup = ' HSI Lab ').add_to(m)
 
 folium.TileLayer('Stamen Terrain').add_to(m)
 folium.TileLayer('Stamen Toner').add_to(m)
@@ -50,7 +51,8 @@ folium.TileLayer('Stamen Water Color').add_to(m)
 folium.TileLayer('cartodbpositron').add_to(m)
 folium.TileLayer('cartodbdark_matter').add_to(m)
 folium.LayerControl().add_to(m)
-folium.Marker(location=[33.81712, -118.34355],popup='HSI Lab',tooltip='HSI Group').add_to(m)
+# CircleMarker with radius
+folium.CircleMarker(location = [33.81730, -118.343395], radius = 50, fill_color='blue',popup = ' HSI Lab ').add_to(m)
 
 if tiles is not None:
     for tile in tiles:
