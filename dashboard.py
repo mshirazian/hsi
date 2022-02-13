@@ -50,7 +50,7 @@ folium.TileLayer('Stamen Water Color').add_to(m)
 folium.TileLayer('cartodbpositron').add_to(m)
 folium.TileLayer('cartodbdark_matter').add_to(m)
 folium.LayerControl().add_to(m)
-folium.Marker(location=[33.81712, -118.34355],popup='HSI Backyard',tooltip='HSI Group').add_to(m)
+folium.Marker(location=[33.81712, -118.34355],popup='HSI Lab',tooltip='HSI Group').add_to(m)
 
 if tiles is not None:
     for tile in tiles:
@@ -60,7 +60,7 @@ if tiles is not None:
 with st.sidebar:
     # st.write('Welcome *%s*' % (st.session_state['name']))
     st.image("assets/logo_gold.png", width=200)
-    selection = st.selectbox('Facility:', ['...','HSI Backyard'])
+    selection = st.selectbox('Facility:', ['...','HSI Lab'])
 if selection ==  'HSI Lab':
         components.html(source_code)
         m.to_streamlit(width, height)
