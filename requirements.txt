@@ -1,3 +1,4 @@
 leafmap
 folium
+streamlit
 streamlit_authenticator

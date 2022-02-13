@@ -61,7 +61,7 @@ with st.sidebar:
     # st.write('Welcome *%s*' % (st.session_state['name']))
     st.image("assets/logo_gold.png", width=200)
     selection = st.selectbox('Facility:', ['...','HSI Backyard'])
-if selection ==  'HSI Backyard':
+if selection ==  'HSI Lab':
         components.html(source_code)
         m.to_streamlit(width, height)
 # elif st.session_state['authentication_status'] == False:
