@@ -2,7 +2,7 @@ import leafmap.foliumap as leafmap
 import folium
 import streamlit as st
 import streamlit.components.v1 as components
-import streamlit_authenticator as stauth
+# import streamlit_authenticator as stauth
 # import ee
 # import geemap.foliumap as geemap
 
@@ -28,22 +28,22 @@ tiles = None
 width = 800
 height = 600
 
-hashed_passwords = stauth.hasher(passwords).generate()
+# hashed_passwords = stauth.hasher(passwords).generate()
 
 HtmlFile = open("assets/sketchfab.html", 'r', encoding='utf-8')
 source_code = HtmlFile.read()
 
-authenticator = stauth.authenticate(names,usernames,hashed_passwords,
-    'some_cookie_name','some_signature_key',cookie_expiry_days=30)
-
-name, authentication_status = authenticator.login('Login','sidebar')
+# authenticator = stauth.authenticate(names,usernames,hashed_passwords,
+#     'some_cookie_name','some_signature_key',cookie_expiry_days=30)
+#
+# name, authentication_status = authenticator.login('Login','sidebar')
 
 if st.session_state['authentication_status']:
     # html = "assets\sfo.html"
     # leafmap.cesium_to_streamlit(html, height=800)
     # m = geemap.Map(location=[33.81712, -118.34365], zoom_start=18)
     m = leafmap.Map(location=[33.81712, -118.34365], zoom_start=18)
-    
+
     folium.TileLayer('Stamen Terrain').add_to(m)
     folium.TileLayer('Stamen Toner').add_to(m)
     folium.TileLayer('Stamen Water Color').add_to(m)
