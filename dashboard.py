@@ -2,7 +2,7 @@ import leafmap.foliumap as leafmap
 import folium
 import streamlit as st
 import streamlit.components.v1 as components
-# import streamlit_authenticator as stauth
+import streamlit_authenticator as stauth
 # import ee
 # import geemap.foliumap as geemap
 
@@ -38,34 +38,34 @@ source_code = HtmlFile.read()
 #
 # name, authentication_status = authenticator.login('Login','sidebar')
 
-if st.session_state['authentication_status']:
+# if st.session_state['authentication_status']:
     # html = "assets\sfo.html"
     # leafmap.cesium_to_streamlit(html, height=800)
     # m = geemap.Map(location=[33.81712, -118.34365], zoom_start=18)
-    m = leafmap.Map(location=[33.81712, -118.34365], zoom_start=18)
+m = leafmap.Map(location=[33.81712, -118.34365], zoom_start=18)
 
-    folium.TileLayer('Stamen Terrain').add_to(m)
-    folium.TileLayer('Stamen Toner').add_to(m)
-    folium.TileLayer('Stamen Water Color').add_to(m)
-    folium.TileLayer('cartodbpositron').add_to(m)
-    folium.TileLayer('cartodbdark_matter').add_to(m)
-    folium.LayerControl().add_to(m)
-    folium.Marker(location=[33.81712, -118.34355],popup='HSI Backyard',tooltip='HSI Group').add_to(m)
+folium.TileLayer('Stamen Terrain').add_to(m)
+folium.TileLayer('Stamen Toner').add_to(m)
+folium.TileLayer('Stamen Water Color').add_to(m)
+folium.TileLayer('cartodbpositron').add_to(m)
+folium.TileLayer('cartodbdark_matter').add_to(m)
+folium.LayerControl().add_to(m)
+folium.Marker(location=[33.81712, -118.34355],popup='HSI Backyard',tooltip='HSI Group').add_to(m)
 
-    if tiles is not None:
-        for tile in tiles:
-            m.add_xyz_service(tile)
+if tiles is not None:
+    for tile in tiles:
+        m.add_xyz_service(tile)
 
-    # m.to_streamlit(width, height)
-    with st.sidebar:
-        st.write('Welcome *%s*' % (st.session_state['name']))
-        st.image("assets/logo_gold.png", width=200)
-        selection = st.selectbox('Facility:', ['...','HSI Backyard'])
-    if selection ==  'HSI Backyard':
-            components.html(source_code)
-            m.to_streamlit(width, height)
-elif st.session_state['authentication_status'] == False:
-    st.error('Username/password is incorrect')
-elif st.session_state['authentication_status'] == None:
-    st.warning('Please enter your username and password')
+# m.to_streamlit(width, height)
+with st.sidebar:
+    # st.write('Welcome *%s*' % (st.session_state['name']))
+    st.image("assets/logo_gold.png", width=200)
+    selection = st.selectbox('Facility:', ['...','HSI Backyard'])
+if selection ==  'HSI Backyard':
+        components.html(source_code)
+        m.to_streamlit(width, height)
+# elif st.session_state['authentication_status'] == False:
+#     st.error('Username/password is incorrect')
+# elif st.session_state['authentication_status'] == None:
+#     st.warning('Please enter your username and password')
 
