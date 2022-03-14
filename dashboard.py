@@ -34,8 +34,8 @@ height = 600
 access_token = 'pk.eyJ1IjoibXNoaXJhemlhbiIsImEiOiJjbDBxNnY4ZnoxcjNzM2NvMHpjaXgwZ3l6In0.a465HCh_wNlTEzwc4jDFdw'
 # hashed_passwords = stauth.hasher(passwords).generate()
 
-HtmlFile = open("assets/sketchfab.html", 'r', encoding='utf-8')
-source_code = HtmlFile.read()
+# HtmlFile = open("assets/sketchfab.html", 'r', encoding='utf-8')
+# source_code = HtmlFile.read()
 
 # authenticator = stauth.authenticate(names,usernames,hashed_passwords,
 #     'some_cookie_name','some_signature_key',cookie_expiry_days=30)
@@ -61,10 +61,14 @@ m = leafmap.Map(location=[33.81712, -118.34365], zoom_start=17)
 
 pp = folium.Html('<a href="'+ url+'"target="_blank">'+ 'Pipes Digital Twin' + '</a>', script=True)
 popup = folium.Popup(pp, max_width=2650)
-folium.CircleMarker(location=[33.81730, -118.343395], radius=20, fill_color='blue', popup=popup).add_to(m)
-# folium.Marker([30,-100], popup=popup).add_to(m)
+# folium.CircleMarker(location=[33.81730, -118.343395], radius=20, fill_color='blue', popup=popup).add_to(m)
+folium.Marker([33.81730, -118.343395], popup=popup, tooltip='Digital Twin').add_to(m)
+# folium.IFrame(html='<iframe src="https://soterai.z22.web.core.windows.net/App/index.html?scene=HSI '
+#                    'Lab&cX=7.5227&cY=-7.8299&cZ=-0.5512&upX=0.0000&upY=0.0000&upZ=1.0000&tX=-0.7941&tY=0.4326&tZ=-9.3567&playBtn=on" width="700" height="525" frameborder="0" style="border:0" '
+#                    'allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>').add_to(m)
 
 st.image("assets/logo_gold.png", width=100)
+st.text('Click on map marker to see Digital model ')
 # if st.button('Open browser'):
 #     webbrowser.open(url)
 if tiles is not None:
