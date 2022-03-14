@@ -59,10 +59,10 @@ m = leafmap.Map(location=[33.81712, -118.34365], zoom_start=17)
 # folium.LayerControl().add_to(m)
 # CircleMarker with radius
 
-pp = folium.Html('<a href="'+ url+'"target="_blank">'+ 'Pipes Digital Twin' + '</a>', script=True)
+pp = folium.Html('<a href="'+ url+'"target="_blank">'+ 'Click here' + '</a>', script=True)
 popup = folium.Popup(pp, max_width=2650)
 # folium.CircleMarker(location=[33.81730, -118.343395], radius=20, fill_color='blue', popup=popup).add_to(m)
-folium.Marker([33.81730, -118.343395], popup=popup, tooltip='Digital Twin').add_to(m)
+folium.Marker([33.81730, -118.343395], popup=popup, tooltip='HSI Lab').add_to(m)
 # folium.IFrame(html='<iframe src="https://soterai.z22.web.core.windows.net/App/index.html?scene=HSI '
 #                    'Lab&cX=7.5227&cY=-7.8299&cZ=-0.5512&upX=0.0000&upY=0.0000&upZ=1.0000&tX=-0.7941&tY=0.4326&tZ=-9.3567&playBtn=on" width="700" height="525" frameborder="0" style="border:0" '
 #                    'allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>').add_to(m)
